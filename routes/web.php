@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/orders_import',[HomeController::class,'upload'])->name('orders.import');
-Route::get('getsubcategories',[PdfController::class,'getsubcategories'])->name('getsubcategories');
-Route::get('recap',[PdfController::class,'recap'])->name('recap');
-Route::get('tickets',[PdfController::class,'tickets'])->name('tickets');
-Route::get('bon_reception',[PdfController::class,'bon_reception'])->name('bon_reception');
-Route::get('clear',[HomeController::class,'clear'])->name('clear');
+Route::post('/orders_import', [HomeController::class, 'upload'])->name('orders.import');
+Route::get('getBonCommand', [PdfController::class, 'getBonCommand'])->name('getBonCommand');
+Route::get('recap', [PdfController::class, 'recap'])->name('recap');
+Route::get('tickets', [PdfController::class, 'tickets'])->name('tickets');
+Route::get('bon_reception', [PdfController::class, 'bon_reception'])->name('bon_reception');
+Route::get('clear', [HomeController::class, 'clear'])->name('clear');
