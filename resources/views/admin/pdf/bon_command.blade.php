@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Document</title>
     <style>
-
         .page-break {
             page-break-after: always;
         }
@@ -113,6 +112,12 @@
                         @endforeach
                     </tbody>
                 </table>
+                <footer>
+                    <span> ANGLE BD ABDELMOUMEN & RUE SOUMAYA RES SHEHRAZADE 3 ETG 4 N 20 Casablanca </span><br>
+                    0600038001 - RC: 543099 - Patente: 34778910 - Identifiant fiscal: 52459261 - ICE: 003068414000037 -
+                    CNSS:
+                    4537783 - EMAIL: <b>support@veryfrais.com</b>
+                </footer>
                 <div class="page-break"></div>
             @endforeach
         @else
@@ -173,7 +178,7 @@
                         <tr>
                             <td style="border: 1px solid black">{{ $item->order_number }}</td>
                             <td style="border: 1px solid black">{{ $item->product }} </td>
-                            <td style="border: 1px solid black">{{ $item->qty }}</td>
+                            <td style="border: 1px solid black">{{ $item->qty *  preg_replace('/[^0-9]/', '', $item->product) }}</td>
                         </tr>
                         @if ($loop->last)
                             <tr>
