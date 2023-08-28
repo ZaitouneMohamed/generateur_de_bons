@@ -97,10 +97,20 @@
                                     $count = $item->qty;
                                 @endphp
                             @endif
+                            @php
+                                $number = intval(preg_replace('/[^0-9]/', '', $item->product));
+                                $qty = $item->qty * $number;
+                            @endphp
                             <tr>
                                 <td style="border: 1px solid black">{{ $item->order_number }}</td>
                                 <td style="border: 1px solid black">{{ $item->product }} </td>
-                                <td style="border: 1px solid black">{{ $item->qty * intval(preg_replace('/[^0-9]/', '', $item->product)) }}</td>
+                                <td style="border: 1px solid black">
+                                    @if ($qty === 0)
+                                        {{ $count }}
+                                    @else
+                                        {{ $qty }}
+                                    @endif
+                                </td>
                             </tr>
                             @if ($loop->last)
                                 <tr>
@@ -175,10 +185,20 @@
                                 $count = $item->qty;
                             @endphp
                         @endif
+                        @php
+                            $number = intval(preg_replace('/[^0-9]/', '', $item->product));
+                            $qty = $item->qty * $number;
+                        @endphp
                         <tr>
                             <td style="border: 1px solid black">{{ $item->order_number }}</td>
                             <td style="border: 1px solid black">{{ $item->product }} </td>
-                            <td style="border: 1px solid black">{{ $item->qty *  intval(preg_replace('/[^0-9]/', '', $item->product)) }}</td>
+                            <td style="border: 1px solid black">
+                                @if ($qty == 0)
+                                    dfghjkl
+                                @else
+                                    {{ $qty }} ll
+                                @endif
+                            </td>
                         </tr>
                         @if ($loop->last)
                             <tr>
