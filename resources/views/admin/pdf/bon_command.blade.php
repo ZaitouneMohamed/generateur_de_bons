@@ -100,7 +100,7 @@
                             <tr>
                                 <td style="border: 1px solid black">{{ $item->order_number }}</td>
                                 <td style="border: 1px solid black">{{ $item->product }} </td>
-                                <td style="border: 1px solid black">{{ $item->qty * preg_replace('/[^0-9]/', '', $item->product) }}</td>
+                                <td style="border: 1px solid black">{{ $item->qty * intval(preg_replace('/[^0-9]/', '', $item->product)) }}</td>
                             </tr>
                             @if ($loop->last)
                                 <tr>
@@ -178,7 +178,7 @@
                         <tr>
                             <td style="border: 1px solid black">{{ $item->order_number }}</td>
                             <td style="border: 1px solid black">{{ $item->product }} </td>
-                            <td style="border: 1px solid black">{{ $item->qty *  preg_replace('/[^0-9]/', '', $item->product) }}</td>
+                            <td style="border: 1px solid black">{{ $item->qty *  intval(preg_replace('/[^0-9]/', '', $item->product)) }}</td>
                         </tr>
                         @if ($loop->last)
                             <tr>
