@@ -21,4 +21,6 @@
             <a href="{{ route('tickets') }}" class="btn btn-primary">Tickets</a>
         </div>
     @endif
+    <br><br>
+    <livewire:fournisseur />
 @endsection
