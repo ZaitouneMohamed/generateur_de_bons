@@ -58,7 +58,7 @@
                         <td>
                             <h1>Bon de commande </h1>
                             <b>Commande N° : </b> {{ $numero_command }} - {{ date('Y') }} <br>
-                            <b>Date</b> : {{ $previousDay }} <br><br>
+                            <b>Date</b> : {{ $previousDay }} <br>
                             @php
                                 $fournisseur = \App\Models\Fournisseur::where('categorie', $item->subCategory)->first();
                             @endphp
@@ -117,6 +117,8 @@
                                     $unit = $matches[2];
                                     $result = $numericValue * $item->qty; // Calculate the result (2.4)
                                     $resultWithUnit = $result . $unit; // Concatenate the result with the unit (2.4kg)
+                                }else {
+                                    $resultWithUnit = $item->qty;
                                 }
                             @endphp
                             <tr>
@@ -226,6 +228,7 @@
                                 $result = $numericValue * $item->qty; // Calculate the result (2.4)
                                 $resultWithUnit = $result . $unit; // Concatenate the result with the unit (2.4kg)
                             } else {
+                                $resultWithUnit = $item->qty;
                             }
 
                         @endphp
