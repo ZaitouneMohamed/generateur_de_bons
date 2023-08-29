@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,5 @@ Route::get('tickets', [PdfController::class, 'tickets'])->name('tickets');
 Route::get('bon_reception', [PdfController::class, 'bon_reception'])->name('bon_reception');
 Route::get('clear', [HomeController::class, 'clear'])->name('clear');
 Route::post('/SetNomeroCommand', [HomeController::class, 'SetNomeroCommand'])->name('SetNomeroCommand');
+
+Route::resource("fournisseur",FournisseurController::class);

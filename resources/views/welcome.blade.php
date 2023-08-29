@@ -22,5 +22,4 @@
         </div>
     @endif
     <br><br>
-    <livewire:fournisseur />
 @endsection
