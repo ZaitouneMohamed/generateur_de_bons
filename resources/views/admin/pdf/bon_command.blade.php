@@ -59,10 +59,20 @@
                             <h1>Bon de commande </h1>
                             <b>Commande N° : </b> {{ $numero_command }} - {{ date('Y') }} <br>
                             <b>Date</b> : {{ $previousDay }} <br><br>
-                            <b>Fournisseur : </b> nom <br>
-                            <b>Email : </b> email@email.com <br>
-                            <b>Adresse : </b> adresse here <br>
-                            <b>Telephone : </b> 0600000000 <br>
+                            @php
+                                $fournisseur = \App\Models\Fournisseur::where('categorie', $item->subCategory)->first();
+                            @endphp
+                            @if ($fournisseur)
+                                <b>Fournisseur : </b> {{ $fournisseur->name }} <br>
+                                <b>Email : </b> {{ $fournisseur->email }} <br>
+                                <b>Adresse : </b> {{ $fournisseur->adresse }} <br>
+                                <b>Telephone : </b> {{ $fournisseur->phone }} <br>
+                            @else
+                                <b>Fournisseur : </b> null <br>
+                                <b>Email : </b> email@email.com <br>
+                                <b>Adresse : </b> adresse here <br>
+                                <b>Telephone : </b> 0600000000 <br>
+                            @endif
                         </td>
                     </tr>
                 </table>
@@ -100,19 +110,14 @@
                             @endif
                             @php
                                 $string = $item->product;
-
-                                // Use regular expression to match the numeric value and unit
                                 preg_match('/([\d.]+)([a-zA-Z]+)/', $string, $matches);
-
+                                $numericValue = 0;
                                 if (count($matches) >= 3) {
                                     $numericValue = floatval($matches[1]);
                                     $unit = $matches[2];
-
-                                    $result = $numericValue * $count; // Calculate the result (2.4)
+                                    $result = $numericValue * $item->qty; // Calculate the result (2.4)
                                     $resultWithUnit = $result . $unit; // Concatenate the result with the unit (2.4kg)
-                                } else {
                                 }
-
                             @endphp
                             <tr>
                                 <td style="border: 1px solid black">{{ $item->order_number }}</td>
@@ -161,10 +166,20 @@
                         <h1>Bon de commande </h1>
                         <b>Commande N° : </b> {{ $numero_command }} - {{ date('Y') }} <br>
                         <b>Date</b> : {{ $previousDay }} <br><br>
-                        <b>Fournisseur : </b> nom <br>
-                        <b>Email : </b> email@email.com <br>
-                        <b>Adresse : </b> adresse here <br>
-                        <b>Telephone : </b> 0600000000 <br>
+                        @php
+                            $fournisseur = \App\Models\Fournisseur::where('categorie', $item)->first();
+                        @endphp
+                        @if ($fournisseur)
+                            <b>Fournisseur : </b> {{ $fournisseur->name }} <br>
+                            <b>Email : </b> {{ $fournisseur->email }} <br>
+                            <b>Adresse : </b> {{ $fournisseur->adresse }} <br>
+                            <b>Telephone : </b> {{ $fournisseur->phone }} <br>
+                        @else
+                            <b>Fournisseur : </b> null <br>
+                            <b>Email : </b> email@email.com <br>
+                            <b>Adresse : </b> adresse here <br>
+                            <b>Telephone : </b> 0600000000 <br>
+                        @endif
                     </td>
                 </tr>
             </table>
@@ -202,14 +217,13 @@
                         @php
                             $string = $item->product;
 
-                            // Use regular expression to match the numeric value and unit
                             preg_match('/([\d.]+)([a-zA-Z]+)/', $string, $matches);
 
                             if (count($matches) >= 3) {
                                 $numericValue = floatval($matches[1]);
                                 $unit = $matches[2];
 
-                                $result = $numericValue * $count; // Calculate the result (2.4)
+                                $result = $numericValue * $item->qty; // Calculate the result (2.4)
                                 $resultWithUnit = $result . $unit; // Concatenate the result with the unit (2.4kg)
                             } else {
                             }
@@ -222,7 +236,7 @@
                                 @if ($resultWithUnit)
                                     {{ $resultWithUnit }}
                                 @else
-                                    dfghjkl
+                                    {{ $count }}
                                 @endif
                             </td>
                         </tr>
