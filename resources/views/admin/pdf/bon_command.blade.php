@@ -56,7 +56,7 @@
                         </td>
                         <td>
                             <h1>Bon de commande </h1>
-                            <b>Commande N° : </b> numero <br>
+                            <b>Commande N° : </b> {{ $numero_command }} - {{ date('Y') }} <br>
                             <b>Date</b> : {{ $previousDay }} <br><br>
                             <b>Fournisseur : </b> nom <br>
                             <b>Email : </b> email@email.com <br>
@@ -145,7 +145,7 @@
                     </td>
                     <td>
                         <h1>Bon de commande </h1>
-                        <b>Commande N° : </b> numero <br>
+                        <b>Commande N° : </b> {{ $numero_command }} - {{ date('Y') }} <br>
                         <b>Date</b> : {{ $previousDay }} <br><br>
                         <b>Fournisseur : </b> nom <br>
                         <b>Email : </b> email@email.com <br>
@@ -196,7 +196,7 @@
                                 @if ($qty == 0)
                                     dfghjkl
                                 @else
-                                    {{ $qty }} ll
+                                    {{ $qty }}
                                 @endif
                             </td>
                         </tr>

@@ -9,11 +9,11 @@ use PDF;
 
 class PdfController extends Controller
 {
-    public function getBonCommand()
+    public function getBonCommand($numero_command)
     {
         $categories = DB::table('orders')->select('category')->distinct()->get()->pluck('category')->toArray();
         $date = Order::first();
-        $pdf = PDF::loadView('admin.pdf.bon_command', compact('categories', 'date'));
+        $pdf = PDF::loadView('admin.pdf.bon_command', compact('categories', 'date',"numero_command"));
         return $pdf->stream('bon_command.pdf');
     }
     public function bon_reception()
