@@ -99,17 +99,29 @@
                                 @endphp
                             @endif
                             @php
-                                $number = intval(preg_replace('/[^0-9]/', '', $item->product));
-                                $qty = $item->qty * $number;
+                                $string = $item->product;
+
+                                // Use regular expression to match the numeric value and unit
+                                preg_match('/([\d.]+)([a-zA-Z]+)/', $string, $matches);
+
+                                if (count($matches) >= 3) {
+                                    $numericValue = floatval($matches[1]);
+                                    $unit = $matches[2];
+
+                                    $result = $numericValue * $count; // Calculate the result (2.4)
+                                    $resultWithUnit = $result . $unit; // Concatenate the result with the unit (2.4kg)
+                                } else {
+                                }
+
                             @endphp
                             <tr>
                                 <td style="border: 1px solid black">{{ $item->order_number }}</td>
                                 <td style="border: 1px solid black">{{ $item->product }} </td>
                                 <td style="border: 1px solid black">
-                                    @if ($qty === 0)
-                                        {{ $count }}
+                                    @if ($resultWithUnit)
+                                        {{ $resultWithUnit }}
                                     @else
-                                        {{ $qty }}
+                                        {{ $count }}
                                     @endif
                                 </td>
                             </tr>
@@ -199,10 +211,7 @@
 
                                 $result = $numericValue * $count; // Calculate the result (2.4)
                                 $resultWithUnit = $result . $unit; // Concatenate the result with the unit (2.4kg)
-
-                                // echo $resultWithUnit; // Output: 2.4kg
                             } else {
-                                // echo 'No match found';
                             }
 
                         @endphp
