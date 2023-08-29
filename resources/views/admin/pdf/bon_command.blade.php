@@ -48,10 +48,11 @@
                             <img style="margin-top: 50px"
                                 src="https://veryfrais.com/public/storage/restaurant/2022-09-23-632d303dc15f3.png"
                                 width="160px" height="75px" /><br>
-                            Phone : 0600038001 <br>
-                            email : support@veryfrais.com <br>
-                            adresse : ANGLE BD ABDELMOUMEN <br> & RUE SOUMAYA RES SHEHRAZADE <br> 3 ETG 4 N 20
+                            <b>Phone :</b> 0600038001 <br>
+                            <b>email :</b> support@veryfrais.com <br>
+                            <b>adresse :</b> ANGLE BD ABDELMOUMEN <br> & RUE SOUMAYA RES SHEHRAZADE <br> 3 ETG 4 N 20
                             Casablanca<br><br>
+                            <b>ICE :</b>003068414000037 <br>
                             <br><br><br><br><br><br><br><br>
                         </td>
                         <td>
@@ -140,7 +141,8 @@
                         <b>Phone :</b> 0600038001 <br>
                         <b>Email :</b> support@veryfrais.com <br>
                         <b>Adresse :</b> ANGLE BD ABDELMOUMEN <br> & RUE SOUMAYA RES SHEHRAZADE <br> 3 ETG 4 N 20
-                        Casablanca
+                        Casablanca <br>
+                        <b>ICE :</b>003068414000037 <br>
                         <br><br><br><br><br><br><br>
                     </td>
                     <td>

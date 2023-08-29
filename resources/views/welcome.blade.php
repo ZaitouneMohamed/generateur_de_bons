@@ -21,12 +21,4 @@
             <a href="{{ route('tickets') }}" class="btn btn-primary">Tickets</a>
         </div>
     @endif
-    <br><br>
-    <form action="{{ route('SetNomeroCommand') }}" method="post">
-        @csrf
-        @method('post')
-        <input type="number" name="numero" value="{{ config('app.command_number') }}" id="">
-        <input type="submit" value="update" class="btn btn-success">
-    </form>
-    <h1>{{ config('app.command_number') }}</h1>
 @endsection
