@@ -117,7 +117,7 @@
                                     $unit = $matches[2];
                                     $result = $numericValue * $item->qty; // Calculate the result (2.4)
                                     $resultWithUnit = $result . $unit; // Concatenate the result with the unit (2.4kg)
-                                }else {
+                                } else {
                                     $resultWithUnit = $item->qty;
                                 }
                             @endphp
@@ -218,17 +218,17 @@
                         @endif
                         @php
                             $string = $item->product;
-
                             preg_match('/([\d.]+)([a-zA-Z]+)/', $string, $matches);
-
                             if (count($matches) >= 3) {
                                 $numericValue = floatval($matches[1]);
                                 $unit = $matches[2];
-
                                 $result = $numericValue * $item->qty; // Calculate the result (2.4)
                                 $resultWithUnit = $result . $unit; // Concatenate the result with the unit (2.4kg)
                             } else {
                                 $resultWithUnit = $item->qty;
+                                if ($string == 'Poulet fermier entier(+ou-)1,2Kg') {
+                                    $resultWithUnit = 1.2 * $item->qty . 'kg';
+                                }
                             }
 
                         @endphp
@@ -237,7 +237,11 @@
                             <td style="border: 1px solid black">{{ $item->product }} </td>
                             <td style="border: 1px solid black">
                                 @if ($resultWithUnit)
-                                    {{ $resultWithUnit }}
+                                    @if ($item->product == 'Poulet fermier entier(+ou-)1,2Kg')
+                                        {{  1.2 * $item->qty . 'kg'  }}
+                                    @else
+                                        {{ $resultWithUnit }}
+                                    @endif
                                 @else
                                     {{ $count }}
                                 @endif
