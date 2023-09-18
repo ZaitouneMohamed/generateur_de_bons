@@ -226,11 +226,7 @@
                                 $resultWithUnit = $result . $unit; // Concatenate the result with the unit (2.4kg)
                             } else {
                                 $resultWithUnit = $item->qty;
-                                if ($string == 'Poulet fermier entier(+ou-)1,2Kg') {
-                                    $resultWithUnit = 1.2 * $item->qty . 'kg';
-                                }
                             }
-
                         @endphp
                         <tr>
                             <td style="border: 1px solid black">{{ $item->order_number }}</td>
@@ -238,7 +234,7 @@
                             <td style="border: 1px solid black">
                                 @if ($resultWithUnit)
                                     @if ($item->product == 'Poulet fermier entier(+ou-)1,2Kg')
-                                        {{  1.2 * $item->qty . 'kg'  }}
+                                        {{ 1.2 * $item->qty . 'kg' }}
                                     @else
                                         {{ $resultWithUnit }}
                                     @endif
