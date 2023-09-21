@@ -233,8 +233,8 @@
                             <td style="border: 1px solid black">{{ $item->product }} </td>
                             <td style="border: 1px solid black">
                                 @if ($resultWithUnit)
-                                    @if ($item->product == 'Poulet fermier entier(+ou-)1,2Kg')
-                                        {{ 1.2 * $item->qty . 'kg' }}
+                                    @if ($item->product == 'Poulet fermier entier(+ou-)1Kg')
+                                        {{ $count }}
                                     @else
                                         {{ $resultWithUnit }}
                                     @endif
