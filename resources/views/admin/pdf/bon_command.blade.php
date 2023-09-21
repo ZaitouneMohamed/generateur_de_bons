@@ -234,7 +234,7 @@
                             <td style="border: 1px solid black">
                                 @if ($resultWithUnit)
                                     @if ($item->product == 'Poulet fermier entier(+ou-)1Kg')
-                                        {{ $count }}
+                                        {{ $count }} Piéce
                                     @else
                                         {{ $resultWithUnit }}
                                     @endif
