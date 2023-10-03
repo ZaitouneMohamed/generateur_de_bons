@@ -14,7 +14,7 @@
     @endif
     @if (\App\Models\Order::count() != 0)
         <div class="container">
-            <a href="{{ route('clear') }}" class="btn btn-danger" target="_blank">clear table</a><br>
+            <a href="{{ route('clear') }}" class="btn btn-danger">clear table</a><br>
             <a href="{{ route('getBonCommand',5) }}" class="btn btn-primary" target="_blank">get bon de commande</a>
             <a href="{{ route('recap') }}" class="btn btn-primary" target="_blank">get Recap</a>
             <a href="{{ route('bon_reception') }}" class="btn btn-primary" target="_blank">get Bon De Reception</a>
