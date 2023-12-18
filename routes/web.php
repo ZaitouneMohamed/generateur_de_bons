@@ -3,6 +3,7 @@
 use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::controller(ProductController::class)->name("product.")->group(function() {
+    Route::get('productList','index')->name("list");
+    Route::post('ImportProducts','ImportProducts')->name("ImportProducts");
+    Route::get('ClearTable','ClearTable')->name("ClearTable");
+});
+
 Route::post('/orders_import', [HomeController::class, 'upload'])->name('orders.import');
 Route::get('getBonCommand/{numero_command}', [PdfController::class, 'getBonCommand'])->name('getBonCommand');
 Route::get('recap', [PdfController::class, 'recap'])->name('recap');
