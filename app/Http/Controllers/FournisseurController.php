@@ -114,4 +114,13 @@ class FournisseurController extends Controller
         Fournisseur::find($id)->delete();
         return redirect()->back();
     }
+
+    public function SwitchActiveMode($id)
+    {
+        $fournisseur = Fournisseur::find($id);
+        $fournisseur->update([
+            "statue" => !$fournisseur->statue
+        ]);
+        return redirect()->back();
+    }
 }

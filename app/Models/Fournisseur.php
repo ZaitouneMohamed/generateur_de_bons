@@ -14,6 +14,7 @@ class Fournisseur extends Model
         "email",
         "adresse",
         "phone",
-        "categorie"
+        "categorie",
+        "statue"
     ];
 }

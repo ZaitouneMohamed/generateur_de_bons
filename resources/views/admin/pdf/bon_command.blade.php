@@ -169,7 +169,7 @@
                         <b>Commande N° : </b> {{ $numero_command }} - {{ date('Y') }} <br>
                         <b>Date</b> : {{ $previousDay }} <br><br>
                         @php
-                            $fournisseur = \App\Models\Fournisseur::where('categorie', $item)->first();
+                            $fournisseur = \App\Models\Fournisseur::where('categorie', $item)->where('statue',1)->first();
                         @endphp
                         @if ($fournisseur)
                             <b>Fournisseur : </b> {{ $fournisseur->name }} <br>

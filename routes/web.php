@@ -21,10 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(ProductController::class)->name("product.")->group(function() {
-    Route::get('productList','index')->name("list");
-    Route::post('ImportProducts','ImportProducts')->name("ImportProducts");
-    Route::get('ClearTable','ClearTable')->name("ClearTable");
+Route::controller(ProductController::class)->name("product.")->group(function () {
+    Route::get('productList', 'index')->name("list");
+    Route::post('ImportProducts', 'ImportProducts')->name("ImportProducts");
+    Route::get('ClearTable', 'ClearTable')->name("ClearTable");
 });
 
 Route::post('/orders_import', [HomeController::class, 'upload'])->name('orders.import');
@@ -35,4 +35,5 @@ Route::get('bon_reception', [PdfController::class, 'bon_reception'])->name('bon_
 Route::get('clear', [HomeController::class, 'clear'])->name('clear');
 Route::post('/SetNomeroCommand', [HomeController::class, 'SetNomeroCommand'])->name('SetNomeroCommand');
 
-Route::resource("fournisseur",FournisseurController::class);
+Route::resource("fournisseur", FournisseurController::class);
+Route::get('updateFournisseurStatue/{id}', [FournisseurController::class, 'SwitchActiveMode'])->name('fournisseur.statue');

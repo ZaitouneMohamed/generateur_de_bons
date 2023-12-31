@@ -36,6 +36,7 @@
                     <th scope="col">phone</th>
                     <th scope="col">adresse</th>
                     <th scope="col">categorie</th>
+                    <th scope="col">statue</th>
                     <th scope="col">action</th>
                 </tr>
             </thead>
@@ -47,6 +48,13 @@
                         <td scope="row">{{ $item->phone }}</td>
                         <td scope="row">{{ $item->adresse }}</td>
                         <td scope="row">{{ $item->categorie }}</td>
+                        <td scope="row">
+                            @if ($item->statue == 1)
+                                <a href="{{ route('fournisseur.statue', $item->id) }}" class="btn btn-success">active</a>
+                            @else
+                                <a href="{{ route('fournisseur.statue', $item->id) }}" class="btn btn-danger">inactive</a>
+                            @endif
+                        </td>
                         <td>
                             <a href="{{ route('fournisseur.edit', $item->id) }}" class="btn btn-warning">Update</a>
                             <form action="{{ route('fournisseur.destroy', $item->id) }}" method="post">
